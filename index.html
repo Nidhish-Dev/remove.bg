@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Background</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 ">
+   <nav class="bg-white shadow-md px-6 py-4 flex items-center justify-between">
+        <!-- Left Side (Logo) -->
+        <div class="flex items-center gap-2">
+            <img src="logo.png" alt="Logo" class="w-8 h-8">
+            <span class="text-xl font-semibold text-gray-700">remove<span class="text-gray-400">bg</span></span>
+        </div>
+
+        <!-- Center (Links) -->
+        <div class="hidden md:flex items-center gap-6 text-gray-600">
+            <a href="/" class="hover:text-gray-800">Remove Background</a>
+            <div class="relative group">
+                <button class="flex items-center gap-1 hover:text-gray-800">
+                    Features
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </button>
+                <!-- Dropdown -->
+                <div class="absolute left-0 mt-2 bg-white shadow-lg rounded-md w-40 hidden group-hover:block">
+                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Feature 1</a>
+                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Feature 2</a>
+                </div>
+            </div>
+            <div class="relative group">
+                <button class="flex items-center gap-1 hover:text-gray-800">
+                    For Business
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </button>
+                <!-- Dropdown -->
+                <div class="absolute left-0 mt-2 bg-white shadow-lg rounded-md w-40 hidden group-hover:block">
+                    <a href="/" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Business Plan</a>
+                    <a href="/" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Enterprise</a>
+                </div>
+            </div>
+            <a href="/" class="hover:text-gray-800">Pricing</a>
+        </div>
+
+        <!-- Right Side (Currency/Account) -->
+        <div class="flex items-center gap-4">
+            <button class="hidden md:block text-gray-600 px-3 py-1 rounded-full bg-gray-100">Nidhish Rathore</button>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden focus:outline-none" id="menuBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-4xl flex flex-col md:flex-row items-center gap-6">
+            <!-- Upload Box -->
+            <div class="flex flex-col items-center w-full md:w-1/2">
+                <h1 class="text-2xl font-bold text-gray-700 mb-4 text-center">Remove Image Background</h1>
+                <div id="uploadBox" class="border-2 border-dashed border-gray-300 rounded-lg p-6 cursor-pointer hover:bg-gray-100 transition-all w-full text-center" onclick="document.getElementById('fileInput').click()">
+                    <input type="file" id="fileInput" accept="image/*" class="hidden">
+                    <p class="text-gray-500 text-lg">Click to upload an image</p>
+                    <p class="text-sm text-gray-400">or drag & drop here</p>
+                </div>
+                <button onclick="removeBackground()" class="bg-blue-500 text-white px-4 py-2 mt-4 rounded-lg">Remove Background</button>
+            </div>
+    
+            <!-- Image Preview & Processed Image -->
+            <div class="w-full md:w-1/2 flex flex-col items-center">
+                <div id="imagePreview" class="hidden sparkle-container">
+                    <img id="previewImg" class="w-48 h-48 object-cover rounded-lg shadow">
+                </div>
+    
+                <div id="loading" class="hidden mt-4">
+                    <p class="mt-2 text-gray-500">Processing...</p>
+                </div>
+    
+                <div id="output" class="hidden mt-4 magic text-center">
+                    <a id="downloadBtn" class="mt-4 block bg-yellow-400 text-white px-4 py-2 rounded-lg" download="removed-bg.png">Download Image</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+    <script src="script.js"></script>
+</body>
+</html>
