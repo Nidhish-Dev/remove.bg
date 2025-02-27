@@ -16,7 +16,6 @@ function previewImage() {
         reader.onload = (e) => {
             previewImg.src = e.target.result;
             imagePreview.classList.remove("hidden");
-            addSparkles();
         };
         reader.readAsDataURL(fileInput.files[0]);
     }
@@ -58,26 +57,3 @@ async function removeBackground() {
     }
 }
 
-function addSparkles() {
-    const container = document.querySelector(".sparkle-container");
-
-    // Remove existing sparkles before adding new ones
-    const existingSparkles = document.querySelector(".sparkle-effect");
-    if (existingSparkles) existingSparkles.remove();
-
-    // Create sparkle effect container
-    const sparkleEffect = document.createElement("div");
-    sparkleEffect.classList.add("sparkle-effect");
-
-    // Add multiple sparkle dots
-    for (let i = 0; i < 5; i++) {
-        const dot = document.createElement("div");
-        dot.classList.add("sparkle-dot");
-        dot.style.top = `${Math.random() * 100}%`;
-        dot.style.left = `${Math.random() * 100}%`;
-        dot.style.animationDelay = `${Math.random() * 1.5}s`;
-        sparkleEffect.appendChild(dot);
-    }
-
-    container.appendChild(sparkleEffect);
-}
